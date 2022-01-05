@@ -23,7 +23,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Discription</label>
-                                    <TEXTAREA style="resize: none" row="8" class="form-control" name='category_product_desc' id="exampleInputPassword1" placeholder="Discription"></TEXTAREA> 
+                                    <TEXTAREA  row="8" class="form-control" name='category_product_desc' id="ck3" placeholder="Discription"></TEXTAREA> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Keywords</label>
+                                    <TEXTAREA  row="8" class="form-control" name='category_product_keywords' placeholder="Keywords"></TEXTAREA> 
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Show</label>

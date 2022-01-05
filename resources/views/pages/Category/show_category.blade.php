@@ -1,6 +1,7 @@
 @extends('welcome')
 @section('content')
 <div class="features_items"><!--features_items-->
+						<div class="fb-like" data-href="{{$url_canonical}}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>	
 
 						@foreach($category_name as $key => $name)
 						<h2 class="title text-center">{{$name->category_name}}</h2>
@@ -30,7 +31,8 @@
 						</div>
 					</a>
 						@endforeach
-					</div><!--features_items-->
 
+					</div><!--features_items-->
+ 
 @endsection
 

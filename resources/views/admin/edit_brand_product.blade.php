@@ -14,7 +14,7 @@
                                 }
                             ?>
                         <div class="panel-body">
-                           
+                            {{-- Without MODEL --}}
                             @foreach($edit_brand_product as $key => $edit_value)
                             <div class="position-center">
                                 <form role="form" action="{{URL::to('/update-brand-product/'.$edit_value->brand_id)}}" method="post">
@@ -25,13 +25,31 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Discription</label>
-                                    <TEXTAREA style="resize: none" row="8" class="form-control" name='brand_product_desc' id="exampleInputPassword1" placeholder="Discription">{{$edit_value->desc}}</TEXTAREA> 
+                                    <TEXTAREA style="resize: none" row="8" class="form-control" name='brand_product_desc' id="ck4" placeholder="Discription">{{$edit_value->brand_desc}}</TEXTAREA> 
                                 </div>
                                 
                                 <button type="submit" name="update_brand_product" class="btn btn-info">Submit</button>
                             </form>
                             </div>
                             @endforeach
+
+
+                            {{-- USING MODEL WITH find() --}}
+                            {{-- <div class="position-center">
+                                <form role="form" action="{{URL::to('/update-brand-product/'.$edit_brand_product->brand_id)}}" method="post">
+                                    {{csrf_field()}}
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">brand name</label>
+                                    <input type="text" value="{{$edit_brand_product->brand_name}}" name="brand_product_name" class="form-control" id="exampleInputEmail1" placeholder="brand name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Discription</label>
+                                    <TEXTAREA style="resize: none" row="8" class="form-control" name='brand_product_desc' id="ck4" placeholder="Discription">{{$edit_brand_product->brand_desc}}</TEXTAREA> 
+                                </div>
+                                
+                                <button type="submit" name="update_brand_product" class="btn btn-info">Submit</button>
+                            </form>
+                            </div> --}}
                         </div>
                     </section>
 

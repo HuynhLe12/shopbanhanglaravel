@@ -3,9 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="{{$meta_desc}}">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="keywords" content="{{$meta_keywords}}">
+    <link rel="canonical" href="{{$url_canonical}}">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <link rel="icon" type="image/x-icon" href="" />
+    <title>{{$meta_title}}</title>
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}} " rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -455,5 +459,10 @@
 	<script src="{{asset('public/frontend/js/price-range.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="fE0efemI"></script>
+
+
 </body>
 </html>

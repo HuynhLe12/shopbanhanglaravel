@@ -26,6 +26,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery2.0.3.min.js')}}"></script>
 <script src="{{asset('public/backend/js/raphael-min.js')}}"></script>
 <script src="{{asset('public/backend/js/morris.js')}}"></script>
+<script src="{{ asset('public/backend/ckeditor/ckeditor.js') }}"></script>
+
 </head>
 <body>
 <section id="container">
@@ -241,6 +243,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 
 		});
+	</script>
+	<script type="text/javascript">
+		CKEDITOR.replace('ck1');
+		CKEDITOR.replace('ck2');
+		CKEDITOR.replace('ck3');
+		CKEDITOR.replace('ck4');
 	</script>
 	<!-- //calendar -->
 </body>
