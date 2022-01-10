@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use DB;
 use Cart;
 use Session;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Brand;
+use App\Models\Payment;
+use App\Models\Orders;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Redirect;
  
 session_start();
@@ -20,8 +26,8 @@ class CheckoutController extends Controller
         }
     }
     public function login_checkout(Request $request){
-        $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+        $cate_product = Product::where('category_status','1')->orderby('category_id','desc')->get();
+        $brand_product = Brand::where('brand_status','1')->orderby('brand_id','desc')->get();
         return view('pages.Checkout.login_checkout')->with('category',$cate_product)->with('brand',$brand_product);
     }
     public function add_customer(Request $request){
@@ -38,8 +44,8 @@ class CheckoutController extends Controller
         return Redirect::to('/checkout');
     }
     public function checkout(){
-        $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+        $cate_product = Product::where('category_status','1')->orderby('category_id','desc')->get();
+        $brand_product = Brand::where('brand_status','1')->orderby('brand_id','desc')->get();
         return view('pages.Checkout.show_checkout')->with('category',$cate_product)->with('brand',$brand_product);
     }
     public function save_checkout_customer(Request $request){
@@ -57,8 +63,8 @@ class CheckoutController extends Controller
         return Redirect::to('/payment');
     }
     public function payment(){
-        $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+        $cate_product = Product::where('category_status','1')->orderby('category_id','desc')->get();
+        $brand_product = Brand::where('brand_status','1')->orderby('brand_id','desc')->get();
         return view('pages.Checkout.payment')->with('category',$cate_product)->with('brand',$brand_product);
     }
     
@@ -94,8 +100,8 @@ class CheckoutController extends Controller
             echo 'ATM';
         }else{
             Cart::destroy();
-            $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-            $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+            $cate_product = Product::where('category_status','1')->orderby('category_id','desc')->get();
+            $brand_product = Brand::where('brand_status','1')->orderby('brand_id','desc')->get();
             return view('pages.Checkout.handcash')->with('category',$cate_product)->with('brand',$brand_product);
             
         }

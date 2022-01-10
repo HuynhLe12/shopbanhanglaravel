@@ -55,14 +55,14 @@ class BrandProduct extends Controller
 
     public function unactive_brand_product($brand_product_id){
         $this->AuthLogin();
-    	DB::table('tbl_brand')->where('brand_id',$brand_product_id)->update(['brand_status'=>0]);
+    	Brand::where('brand_id',$brand_product_id)->update(['brand_status'=>0]);
     	Session::put('message','Not displayed successfully');
     	return Redirect::to('all-brand-product');
     }
 
     public function active_brand_product($brand_product_id){
         $this->AuthLogin();
-    	DB::table('tbl_brand')->where('brand_id',$brand_product_id)->update(['brand_status'=>1]);
+    	Brand::where('brand_id',$brand_product_id)->update(['brand_status'=>1]);
     	Session::put('message','Displayed successfully');
     	return Redirect::to('all-brand-product');
     }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Brand;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use Cart;
@@ -12,13 +14,13 @@ session_start();
 class CartController extends Controller
 {
     public function save_cart(Request $request){
-        $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+        $cate_product = Category::where('category_status','1')->orderby('category_id','desc')->get();
+        $brand_product = Brand::where('brand_status','1')->orderby('brand_id','desc')->get();
 
         $productId = $request->productid_hidden;
         $quantity = $request->qty;
 
-        $product_info = DB::table('tbl_product')->where('product_id',$productId)->first();
+        $product_info = Product::where('product_id',$productId)->first();
 
         $data['id'] = $product_info->product_id;
         $data['qty'] = $quantity;
@@ -33,8 +35,8 @@ class CartController extends Controller
     }
     public  function show_cart()
     {
-        $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+        $cate_product = Category::where('category_status','1')->orderby('category_id','desc')->get();
+        $brand_product = Brand::where('brand_status','1')->orderby('brand_id','desc')->get();
         return view('pages.Cart.show_cart')->with('category',$cate_product)->with('brand',$brand_product);
     }
     public function delete_to_cart($rowId){
